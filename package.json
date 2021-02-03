@@ -1,0 +1,32 @@
+{
+  "name": "@kayac/posthtml-tailwindcss-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "postcss:watch": "postcss src/styles/index.pcss -o src/styles/index.css --env development -w",
+    "postcss:build": "postcss src/styles/index.pcss -o src/styles/index.css --env production",
+    "parcel:serve": "parcel src/index.html",
+    "parcel:watch": "parcel watch src/index.html",
+    "parcel:build": "parcel build src/index.html",
+    "clean": "rm -rf dist .cache",
+    "build": "npm-run-all -s clean postcss:build parcel:build",
+    "start": "npm-run-all -s clean -p postcss:watch parcel:serve"
+  },
+  "dependencies": {
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^4.0.0",
+    "autoprefixer": "^9",
+    "cssnano": "^4.1.10",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.4",
+    "postcss": "^8.2.4",
+    "postcss-cli": "^8.3.1",
+    "posthtml-expressions": "^1.7.1",
+    "posthtml-head-elements": "^0.5.1",
+    "posthtml-include": "^1.6.0",
+    "posthtml-load-config": "^2.0.0"
+  }
+}
